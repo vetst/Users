@@ -9,7 +9,7 @@
 </head>
 <body>
  <h2>Обновить пользователя</h2><br>
- <form action="edit" method="GET" >
+ <form action="edit" method="POST" >
  <input type="hidden" name="userId" value="${userId}">
  <p>Введите имя: <input type="text" value = "${name}" name = "name"></p>
  <p>Введите фамилию: <input type="text" value = "${surName}" name = "surName"></p>

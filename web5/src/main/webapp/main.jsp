@@ -17,7 +17,7 @@
                    <input type="hidden" name="userId" value="${user.id}">
                    <input type="submit" value="Редактировать"/>
                    </form></td>
-			   <td><form action="main" method="POST">
+			   <td><form action="delete" method="GET">
                    <input type="hidden" name="userId" value="${user.id}">
                    <input type="submit" value="Удалить"/>
                    </form></td>

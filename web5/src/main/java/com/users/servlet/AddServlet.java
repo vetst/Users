@@ -1,6 +1,6 @@
 package com.users.servlet;
 
-import com.users.dao.DBException;
+import com.users.exception.DBException;
 import com.users.model.User;
 import com.users.service.UserService;
 
@@ -16,6 +16,12 @@ public class AddServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/add-user.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         String name = req.getParameter("name");
         String surName = req.getParameter("surName");
         User user = new User();
@@ -25,7 +31,7 @@ public class AddServlet extends HttpServlet {
         req.setAttribute("value", value);
         try {
             if ((!"".equals(name) && !"".equals(surName)) && (name != null && surName != null)) {
-                new UserService().addUser(user);
+                UserService.getUserService().addUser(user);
                 value = "not null";
                 req.setAttribute("value", value);
             }
