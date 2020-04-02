@@ -3,7 +3,7 @@ package com.users.service;
 import com.users.dao.UserDao;
 import com.users.exception.DBException;
 import com.users.model.User;
-import com.users.mysql.MySqlUserDao;
+import com.users.mysql.UserHibernateDAO;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class UserService {
         return INSTANCE;
     }
 
-    private UserDao userDao = MySqlUserDao.getInstance();
+private UserDao userDao  = new UserHibernateDAO();
 
     public boolean addUser(User user) throws DBException {
 
